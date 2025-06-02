@@ -1,0 +1,142 @@
+{
+  "Name": "ORTHANC-DICOM-SERVER",
+  "StorageDirectory": "/var/lib/orthanc/db",
+  "IndexDirectory": "/var/lib/orthanc/db",
+  "RemoteAccessAllowed": true,
+  "AuthenticationEnabled": false,
+  "SslEnabled": false,
+  "HttpPort": 8042,
+  "DicomPort": 4242,
+  "DicomServerEnabled": true,
+  "DicomAlwaysAllowEcho": true,
+  "DicomAlwaysAllowFind": true,
+  "DicomAlwaysAllowMove": true,
+  "DicomAlwaysAllowGet": true,
+  "DicomAlwaysAllowStore": true,
+  "StableAge": 60,
+  "StrictAetComparison": false,
+  "DicomAssociationCloseDelay": 5,
+  "DicomScuTimeout": 10,
+  "DicomScpTimeout": 30,
+  "MaximumPduLength": 16384,
+  "MaximumStorageSize": 0,
+  "MaximumPatientCount": 0,
+  
+  "Plugins": [
+    "/usr/local/share/orthanc/plugins"
+  ],
+
+  "HttpsCertificate": "",
+  "HttpsPrivateKey": "",
+  "HttpsVerifyPeers": false,
+  "HttpsCACertificates": "",
+  
+  "JobsHistorySize": 10,
+  "SaveJobs": true,
+  
+  "OverwriteInstances": false,
+  "LimitJobs": 10,
+  "LimitFindResults": 0,
+  "LimitFindInstances": 0,
+  "LogExportedResources": false,
+  "KeepAlive": true,
+  "TcpNoDelay": true,
+  "HttpRequestTimeout": 30,
+  "HttpVerbose": false,
+  "HttpCompressionEnabled": true,
+  "UserMetadata": {},
+  "PatientRecycling": true,
+  "StudyRetention": 0,
+  "DefaultEncoding": "Latin1",
+  "AcceptedTransferSyntaxes": [
+    "1.2.840.10008.1.2",
+    "1.2.840.10008.1.2.1",
+    "1.2.840.10008.1.2.2"
+  ],
+  
+  "DicomWeb": {
+    "Enable": true,
+    "Root": "/dicom-web/",
+    "EnableWado": true,
+    "WadoRoot": "/dicom-web",
+    "Ssl": false,
+    "QidoRoot": "/dicom-web",
+    "PublicRoot": "/dicom-web/",
+    "StudiesMetadata": "MainDicomTags",
+    "SeriesMetadata": "MainDicomTags"
+  },
+
+  "StoneWebViewer": {
+    "Enable": true
+  },
+
+  "Worklists": {
+    "Enable": true,
+    "Database": "/var/lib/orthanc/worklists"
+  },
+
+  "Transfers": {
+    "BucketSize": 1000,
+    "CacheSize": 64,
+    "Threads": 4
+  },
+
+  "Gdcm": {
+    "Throttle": 0
+  },
+
+  "WebDav": {
+    "Enable": true,
+    "Root": "/webdav/",
+    "UploadCompression": true
+  },
+
+  "ServeFolders": {
+    "/ohif": "/usr/local/share/orthanc/ohif"
+  },
+
+  "HttpHeaders": {
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Headers": "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Max-Age": "1728000"
+  },
+
+  "RegisteredUsers": {
+  },
+
+  "DicomModalities": {
+  },
+
+  "OrthancPeers": {
+  },
+
+  "Housekeeper": {
+    "Enable": true,
+    "GlobalPropertyId": 1024,
+    "Force": false,
+    "ThrottleDelay": 5,
+    "Triggers": {
+      "StorageCompressionChange": true,
+      "MainDicomTagsChange": true,
+      "UnnecessaryDicomAsJsonFiles": true,
+      "DicomWebCache": true
+    }
+  },
+
+  "DelayedDeletion": {
+    "Enable": true,
+    "Delay": 0
+  },
+
+  "StorageCommitment": {
+    "Enable": true
+  },
+
+  "IngestTranscoding": "1.2.840.10008.1.2.1",
+  "DicomLossyTranscodingQuality": 90,
+
+  "LogLevel": "default",
+  "LogFile": ""
+} 
