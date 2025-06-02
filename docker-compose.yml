@@ -34,11 +34,12 @@ services:
     image: ohif/app:latest
     container_name: ohif-viewer
     ports:
-      - "3000:80"
+      - "3000:3000"
     volumes:
       - ./config/ohif:/usr/share/nginx/html/config:ro
     environment:
       - APP_CONFIG=/usr/share/nginx/html/config/default.js
+      - PORT=3000
     networks:
       - orthanc-network
     depends_on:

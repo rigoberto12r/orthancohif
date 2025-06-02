@@ -12,8 +12,7 @@ window.config = {
     '@ohif/extension-test'
   ],
   modes: [
-    '@ohif/mode-viewer',
-    '@ohif/mode-basic-test-mode'
+    '@ohif/mode-viewer'
   ],
   showStudyList: true,
   maxNumberOfWebWorkers: 3,
@@ -212,18 +211,18 @@ window.config = {
       configuration: {
         friendlyName: 'Orthanc DICOM Server',
         name: 'ORTHANC',
-        wadoUriRoot: 'http://localhost:8042/dicom-web',
-        qidoRoot: 'http://localhost:8042/dicom-web',
-        wadoRoot: 'http://localhost:8042/dicom-web',
+        wadoUriRoot: 'http://192.168.0.10:8042/dicom-web',
+        qidoRoot: 'http://192.168.0.10:8042/dicom-web',
+        wadoRoot: 'http://192.168.0.10:8042/dicom-web',
         qidoSupportsIncludeField: true,
         imageRendering: 'wadors',
         thumbnailRendering: 'wadors',
         enableStudyLazyLoad: true,
-        supportsFuzzyMatching: true,
-        supportsWildcard: true,
-        supportsReject: true,
+        supportsFuzzyMatching: false,
+        supportsWildcard: false,
+        supportsReject: false,
         staticWado: true,
-        singlepart: 'bulkdata,video',
+        singlepart: 'bulkdata,video,pdf',
         acceptHeader: 'multipart/related; type="application/octet-stream"; transfer-syntax=*',
         bulkDataURI: {
           enabled: true,
@@ -231,14 +230,32 @@ window.config = {
         },
         omitQuotationForMultipartRequest: true,
         requestOptions: {
-          requestCredentials: 'include',
+          requestCredentials: 'omit',
           auth: '',
+          headers: {
+            'Accept': 'application/dicom+json,application/json,multipart/related;type=application/dicom;transfer-syntax=*'
+          }
         },
       },
     },
   ],
   defaultDataSourceName: 'dicomweb',
+  hangingProtocolSettings: {
+    protocolId: '@ohif/mnGrid',
+    stage: 'default',
+    activeStudyUID: '',
+    stageOptions: {
+      showEmpty: true,
+      allowEmptyDisplaySets: true
+    }
+  },
   investigationalUseDialog: {
     option: 'never',
   },
+  enableServiceWorker: false,
+  useSharedArrayBuffer: 'AUTO',
+  useNorm16Texture: false,
+  preferSizeOverAccuracy: false,
+  useWebWorkers: true,
+  strictZSpacingForVolumeViewport: false,
 }; 
