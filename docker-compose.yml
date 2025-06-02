@@ -8,8 +8,8 @@ services:
     volumes:
       - ./config/orthanc.json:/etc/orthanc/orthanc.json:ro
       - ./scripts:/etc/orthanc/scripts:ro
-      - orthanc-db:/var/lib/orthanc/db
-      - orthanc-plugins:/usr/local/share/orthanc/plugins
+      - storage:/var/lib/orthanc/db:Z
+      - orthanc-plugins:/usr/local/share/orthanc/plugins:Z
     environment:
       - ORTHANC_NAME=ORTHANC
       - VERBOSE_ENABLED=true
@@ -63,7 +63,7 @@ services:
     restart: unless-stopped
 
 volumes:
-  orthanc-db:
+  storage:
     driver: local
   orthanc-plugins:
     driver: local
