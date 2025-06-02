@@ -8,7 +8,7 @@ services:
     volumes:
       - ./config/orthanc.json:/etc/orthanc/orthanc.json:ro
       - ./scripts:/etc/orthanc/scripts:ro
-      - storage:/var/lib/orthanc/db:Z
+      - pacs-docker__data:/var/lib/orthanc/db:Z
       - orthanc-plugins:/usr/local/share/orthanc/plugins:Z
     environment:
       - ORTHANC_NAME=ORTHANC
@@ -63,8 +63,8 @@ services:
     restart: unless-stopped
 
 volumes:
-  storage:
-    driver: local
+  pacs-docker__data:
+    external: true
   orthanc-plugins:
     driver: local
 
